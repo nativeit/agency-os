@@ -23,9 +23,9 @@ FROM base
 ENV PORT=$PORT
 ENV NODE_ENV=production
 
-COPY --from=build /usr/src/.output /usr/src/.output
+COPY --from=build .output /usr/src/.output
 # Optional, only needed if you rely on unbundled dependencies
-COPY --from=build /usr/src/node_modules /usr/src/node_modules
+#COPY --from=build node_modules /usr/src/node_modules
 
 #CMD [ "node", ".output/server/index.mjs" ]
 CMD [ "pnpm run dev" ]
