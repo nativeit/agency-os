@@ -10,11 +10,11 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 # Build
 FROM base as build
-COPY --link package.json package-lock.json .
-
+#COPY /usr/src/app/package.json package-lock.json .
+COPY . .
 RUN npm install -g pnpm
 RUN pnpm install
-COPY --link . .
+#COPY . .
 RUN pnpm run build
 
 # Run
