@@ -2,7 +2,7 @@ ARG NODE_VERSION=20.18.0
 FROM node:${NODE_VERSION}-slim as base
 ARG PORT=3000
 RUN apt update && apt-get install -y git
-RUN git clone --recursive https://github.com/nativeit/agency-os.git /src/app && git checkout dev
+RUN git clone https://github.com/nativeit/agency-os.git /src/app && git checkout dev
 WORKDIR /src/app
 ENV PATH /src/app/node_modules/.bin:$PATH
 #COPY . /src/app
