@@ -28,4 +28,4 @@ ENV PORT=$PORT
 #COPY --from=build node_modules /usr/src/node_modules
 
 #CMD [ "node", ".output/server/index.mjs" ]
-CMD [ "pnpm run dev" ]
+CMD [ "pnpm dev" ]
