@@ -21,12 +21,12 @@ RUN pnpm run build
 FROM base
 
 ENV PORT=$PORT
-# ENV NODE_ENV=production
+ENV NODE_ENV=production
 
-# COPY --from=build .output .output
+COPY --from=build .output /usr/src/app/.output
 # Optional, only needed if you rely on unbundled dependencies
 # COPY --from=build node_modules /usr/src/node_modules
 
-RUN pnpm run dev -o
-# CMD [ "node", ".output/server/index.mjs" ]
-CMD [ "bash", "/usr/src/app" ]
+# RUN pnpm run dev -o
+CMD [ "node", "/usr/src/app/.output/server/index.mjs" ]
+# CMD [ "bash", "/usr/src/app" ]
