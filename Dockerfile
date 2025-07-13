@@ -6,27 +6,27 @@ RUN git clone https://github.com/nativeit/agency-os /usr/src/app
 WORKDIR /usr/src/app
 RUN git checkout dev
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
-#COPY . /usr/src/app
+# COPY . /usr/src/app
 
 # Build
 FROM base as build
-#COPY /usr/src/app/package.json package-lock.json .
+# COPY /usr/src/app/package.json package-lock.json .
 COPY . .
 RUN npm install -g pnpm
 RUN pnpm install
-#COPY . .
+# COPY . .
 RUN pnpm run build
 
 # Run
 FROM base
 
 ENV PORT=$PORT
-#ENV NODE_ENV=production
+# ENV NODE_ENV=production
 
-COPY --from=build .output .output
+# COPY --from=build .output .output
 # Optional, only needed if you rely on unbundled dependencies
-#COPY --from=build node_modules /usr/src/node_modules
+# COPY --from=build node_modules /usr/src/node_modules
 
 RUN pnpm run dev -o
-#CMD [ "node", ".output/server/index.mjs" ]
+# CMD [ "node", ".output/server/index.mjs" ]
 CMD [ "bash", "/usr/src/app" ]
