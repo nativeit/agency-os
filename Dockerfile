@@ -27,4 +27,6 @@ COPY --from=build .output .output
 # Optional, only needed if you rely on unbundled dependencies
 #COPY --from=build node_modules /usr/src/node_modules
 
-CMD [ "node", ".output/server/index.mjs" ]
+RUN pnpm run dev -o
+#CMD [ "node", ".output/server/index.mjs" ]
+CMD [ "bash", "/usr/src/app" ]
