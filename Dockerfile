@@ -2,10 +2,10 @@ ARG NODE_VERSION=20.18.0
 FROM node:${NODE_VERSION}-slim as base
 ARG PORT=3000
 RUN apt update && apt-get install -y git
-RUN git clone https://github.com/nativeit/agency-os.git /src/app && git checkout dev
-WORKDIR /src/app
-ENV PATH /src/app/node_modules/.bin:$PATH
-#COPY . /src/app
+RUN git clone https://github.com/nativeit/agency-os.git /usr/src/app && git checkout dev
+WORKDIR /usr/src/app
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+#COPY . /usr/src/app
 
 # Build
 FROM base as build
@@ -22,8 +22,9 @@ FROM base
 ENV PORT=$PORT
 ENV NODE_ENV=production
 
-COPY --from=build /src/.output /src/.output
+COPY --from=build /usr/src/.output /usr/src/.output
 # Optional, only needed if you rely on unbundled dependencies
-# COPY --from=build /src/node_modules /src/node_modules
+COPY --from=build /usr/src/node_modules /usr/src/node_modules
 
-CMD [ "node", ".output/server/index.mjs" ]
+#CMD [ "node", ".output/server/index.mjs" ]
+CMD [ "pnpm run dev" ]
