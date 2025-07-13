@@ -1,7 +1,7 @@
 ARG NODE_VERSION=20.18.0
 FROM node:${NODE_VERSION}-slim as base
 ARG PORT=3000
-WORKDIR /src
+WORKDIR /src/app
 ENV PATH /src/app/node_modules/.bin:$PATH
 COPY . /src/app
 
