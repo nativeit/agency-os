@@ -17,7 +17,7 @@ ARG DIRECTUS_URL="https://cms.dev.nativeit.net"
 ARG DIRECTUS_SERVER_TOKEN=${DIRECTUS_SERVER_TOKEN}
 ARG NUXT_PUBLIC_SITE_URL=${NUXT_PUBLIC_SITE_URL}
 # COPY /usr/src/app/package.json package-lock.json .
-COPY . .
+# COPY . .
 RUN npm install -g pnpm
 RUN pnpm install
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
