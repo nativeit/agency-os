@@ -18,8 +18,8 @@ FROM base as build
 COPY . .
 RUN npm install -g pnpm
 RUN pnpm install
-# COPY . .
 RUN pnpm run build
+COPY .output .output
 
 # Run
 FROM build
