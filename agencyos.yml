@@ -1,19 +1,21 @@
 captainVersion: 4
 services:
     $$cap_appname:
-        image: nativeit/agency-os:$$cap_agencyos_tag
+        image: nativeit/agencyos:$$cap_agencyos_tag
         volumes:
-            - $$cap_appname-data:/usr/src/app
+            - $$cap_appname-server:/usr/src/app/.output/server
+            - $$cap_appname-public:/usr/src/app/.output/public
         restart: always
         environment:
-            DIRECTUS_URL: 'http://srv-captain--cms'
+            DIRECTUS_URL: 'http://cms.$$cap_root_domain'
             DIRECTUS_SERVER_TOKEN: $$cap_directus_token
             NUXT_PUBLIC_SITE_URL: 'http://$$cap_appname.$$cap_root_domain'
+            SITE_URL: 'http://$$cap_appname.$$cap_root_domain'
         caproverExtra:
             containerHttpPort: '3000'
 caproverOneClickApp:
     variables:
-        - description: Tag of Agency OS image on https://hub.docker.com/repository/docker/nativeit/agency-os/tags
+        - description: Tag of Agency OS image on https://hub.docker.com/repository/docker/nativeit/agencyos/tags
           defaultValue: v0.0.0
           id: $$cap_agencyos_tag
           label: Agency OS image tag

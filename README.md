@@ -46,7 +46,7 @@ own apps and tools.
 **Getting Started**
 
 - → **[Read Installation Instructions](#🚧-installation-and-development)**
-- → **[View The Demo Site](https://agency-os.vercel.app/)**
+- → **[View The Demo Site](https://agencyos.vercel.app/)**
 - → **[Watch the Video Tutorials](https://www.youtube.com/playlist?list=PLD--x9rY3ZL1tPNZxCTE_-IsFTrFGKHH-)**
 
 ---
@@ -200,11 +200,11 @@ For your website and client portal, AgencyOS uses Nuxt as the frontend framework
 
 ### **1 - Clone the repo**
 
-[Use This Template](https://github.com/directus-community/agency-os/generate)
+[Use This Template](https://github.com/directus-community/agencyos/generate)
 
 _Or from the terminal_
 
-`git clone https://github.com/directus-community/agency-os.git your-project`
+`git clone https://github.com/directus-community/agencyos.git your-project`
 
 Navigate to the project
 
@@ -260,11 +260,11 @@ build process on Netlify.
 
 **Vercel**
 
-<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdirectus-community%2Fagency-os&env=DIRECTUS_URL,DIRECTUS_SERVER_TOKEN,NUXT_PUBLIC_SITE_URL,STRIPE_SECRET_KEY,STRIPE_PUBLISHABLE_KEY,STRIPE_WEBHOOK_SECRET&project-name=agency-os&demo-title=AgencyOS&demo-description=AgencyOS%20is%20everything%20you%20need%20to%20get%20your%20agency%20off%20the%20ground%2C%20or%20improve%20tooling%20for%20your%20existing%20company.%20Nuxt%203%20Website%20%2F%20Application%20%2B%20Directus%20Backend.&demo-url=https%3A%2F%2Fagencyos.dev&demo-image=https%3A%2F%2Fgithub.com%2Fdirectus-community%2Fagency-os%2Fraw%2Fmain%2Fpublic%2Flogos%2Fagencyos.png&skippable-integrations=1"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
+<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdirectus-community%2Fagencyos&env=DIRECTUS_URL,DIRECTUS_SERVER_TOKEN,NUXT_PUBLIC_SITE_URL,STRIPE_SECRET_KEY,STRIPE_PUBLISHABLE_KEY,STRIPE_WEBHOOK_SECRET&project-name=agencyos&demo-title=AgencyOS&demo-description=AgencyOS%20is%20everything%20you%20need%20to%20get%20your%20agency%20off%20the%20ground%2C%20or%20improve%20tooling%20for%20your%20existing%20company.%20Nuxt%203%20Website%20%2F%20Application%20%2B%20Directus%20Backend.&demo-url=https%3A%2F%2Fagencyos.dev&demo-image=https%3A%2F%2Fgithub.com%2Fdirectus-community%2Fagencyos%2Fraw%2Fmain%2Fpublic%2Flogos%2Fagencyos.png&skippable-integrations=1"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
 
 **Netlify**
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/directus-community/agency-os#DIRECTUS_URL=https://youruniqueid.directus.app"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/directus-community/agencyos#DIRECTUS_URL=https://youruniqueid.directus.app"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
 ## **Deploying Directus - Backend**
 
@@ -349,8 +349,8 @@ AgencyOS is a community driven project so we'd love to have your contributions.
 
 Here's how you can contribute:
 
-- [Open an issue](https://github.com/directus-community/agency-os/issues) if you believe you've encountered a bug.
-- [Make a pull request](https://github.com/directus-community/agency-os/pulls) to add new features/make quality-of-life
+- [Open an issue](https://github.com/directus-community/agencyos/issues) if you believe you've encountered a bug.
+- [Make a pull request](https://github.com/directus-community/agencyos/pulls) to add new features/make quality-of-life
   improvements/fix bugs.
 
 ## 🙏 Thanks To

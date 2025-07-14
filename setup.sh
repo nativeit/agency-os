@@ -13,7 +13,7 @@ build() {
 	echo "Building Docker image..."
 	source ./setup_env.sh
 	echo "$NODE_VERSION"
-	docker buildx build -t nativeit/agency-os:v${AGENCY_OS_VERSION} -f Dockerfile . \
+	docker buildx build -t nativeit/agencyos:v${AGENCY_OS_VERSION} -f Dockerfile . \
 		--build-arg NODE_VERSION=${NODE_VERSION} \
 		--build-arg AGENCY_OS_VERSION=${AGENCY_OS_VERSION} \
 		--build-arg AGENCY_OS_REPO_URL=${AGENCY_OS_REPO_URL} \
@@ -26,7 +26,7 @@ build() {
 push() {
 	echo "Building and pushing Docker image..."
 	source ./setup_env.sh
-	docker buildx build -t nativeit/agency-os:v${AGENCY_OS_VERSION} -f Dockerfile . \
+	docker buildx build -t nativeit/agencyos:v${AGENCY_OS_VERSION} -f Dockerfile . \
 		--build-arg NODE_VERSION=${NODE_VERSION} \
 		--build-arg AGENCY_OS_VERSION=${AGENCY_OS_VERSION} \
 		--build-arg AGENCY_OS_REPO_URL=${AGENCY_OS_REPO_URL} \
@@ -36,7 +36,7 @@ push() {
 		--build-arg DIRECTUS_SERVER_PORT=${DIRECTUS_SERVER_PORT} \
 		--build-arg DIRECTUS_SERVER_TOKEN=${DIRECTUS_SERVER_TOKEN} \
 		--output "type=registry,dest=${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_USERNAME}/${AGENCY_OS_REPO_NAME}"
-	echo "Build completed, Docker image nativeit/agency-os:v${AGENCY_OS_VERSION} was pushed to ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_USERNAME}/${AGENCY_OS_REPO_NAME}:v${AGENCY_OS_VERSION}."
+	echo "Build completed, Docker image nativeit/agencyos:v${AGENCY_OS_VERSION} was pushed to ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_USERNAME}/${AGENCY_OS_REPO_NAME}:v${AGENCY_OS_VERSION}."
 }
 
 case "$1" in
