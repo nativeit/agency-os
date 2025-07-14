@@ -10,7 +10,7 @@ ENV DIRECTUS_URL=${DIRECTUS_URL}
 RUN apt update && apt-get install -y git
 RUN git clone https://github.com/nativeit/agencyos /usr/src/app
 WORKDIR /usr/src/app
-RUN git checkout dev
+RUN git checkout main
 
 # Build
 FROM base AS build
