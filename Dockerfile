@@ -22,7 +22,7 @@ RUN npm install -g pnpm
 RUN pnpm install
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 RUN pnpm run build
-COPY .output .output
+# COPY .output .output
 
 # Run
 FROM build
