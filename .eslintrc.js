@@ -49,6 +49,8 @@ module.exports = {
 		browser: true,
 		node: true,
 	},
+	// Ignore entries, previously in ./.eslintignore (deprecated) - 2025-07-12
+	ignorePatterns: ['node_modules', 'dist'],
 	// Basic configuration for js files
 	plugins: ['@typescript-eslint', 'prettier'],
 	extends: ['eslint:recommended', 'prettier'],

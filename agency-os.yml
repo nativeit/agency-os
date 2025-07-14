@@ -1,0 +1,35 @@
+captainVersion: 4
+services:
+    $$cap_appname:
+        image: nativeit/agency-os:$$cap_agencyos_tag
+        volumes:
+            - $$cap_appname-data:/usr/src/app
+        restart: always
+        environment:
+            DIRECTUS_URL: 'http://srv-captain--cms'
+            DIRECTUS_SERVER_TOKEN: $$cap_directus_token
+            NUXT_PUBLIC_SITE_URL: 'http://$$cap_appname.$$cap_root_domain'
+        caproverExtra:
+            containerHttpPort: '3000'
+caproverOneClickApp:
+    variables:
+        - description: Tag of Agency OS image on https://hub.docker.com/repository/docker/nativeit/agency-os/tags
+          defaultValue: v0.0.0
+          id: $$cap_agencyos_tag
+          label: Agency OS image tag
+          validRegex: /.{1,}/
+        - description: Server token for Directus
+          id: $$cap_directus_token
+          label: Directus Server Token
+          validRegex: /^(?=.*\d).{10,}$/
+    instructions:
+        end: >
+            Aaaand you're done! 😄
+            Your service is available at http://$$cap_appname.$$cap_root_domain
+        start: >-
+            Agency OS is an open-source suite of software from the developers of Directus and NuxtJS that wraps custom SQL databases with a dynamic API and intuitive Admin App.
+            For more information and available options, see https://github.com/directus/agencyos or the official documentation at https://docs.directus.io
+    displayName: 'Agency OS'
+    isOfficial: false
+    description: Agency OS is an open-source tool for agencies to facilitate managing content across all your omni-channel digital experiences
+    documentation: Taken from https://github.com/directus/agencyos.
