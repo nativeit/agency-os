@@ -35,7 +35,7 @@ ENV NODE_ENV=production
 RUN npm install -g pnpm
 RUN pnpm install
 RUN pnpm run build
-COPY .output /usr/src/app/.output
+# COPY .output /usr/src/app/.output
 # COPY --from=build .output /usr/src/app/.output
 # Optional, only needed if you rely on unbundled dependencies
 # COPY --from=build node_modules /usr/src/node_modules
