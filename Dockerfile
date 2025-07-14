@@ -1,6 +1,7 @@
 ARG NODE_VERSION=20.18.0
 FROM node:${NODE_VERSION}-slim as base
 ARG PORT=3000
+RUN echo "$srv-captain--appname"
 RUN apt update && apt-get install -y git
 RUN git clone https://github.com/nativeit/agency-os /usr/src/app
 WORKDIR /usr/src/app
@@ -18,9 +19,9 @@ RUN pnpm install
 RUN pnpm run build
 
 # Run
-FROM base
-
-ENV PORT=$PORT
+FROM build
+ARG PORT=3000
+ENV PORT=${PORT}
 ENV NODE_ENV=production
 
 COPY --from=build .output /usr/src/app/.output
