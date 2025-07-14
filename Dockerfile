@@ -29,7 +29,8 @@ ARG NUXT_PUBLIC_SITE_URL=${NUXT_PUBLIC_SITE_URL}
 ENV PORT=${PORT}
 ENV NODE_ENV=production
 
-COPY --from=build .output /usr/src/app/.output
+COPY .output /usr/src/app/.output
+# COPY --from=build .output /usr/src/app/.output
 # Optional, only needed if you rely on unbundled dependencies
 # COPY --from=build node_modules /usr/src/node_modules
 
