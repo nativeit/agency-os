@@ -32,7 +32,9 @@ ARG DIRECTUS_SERVER_TOKEN=${DIRECTUS_SERVER_TOKEN}
 ARG NUXT_PUBLIC_SITE_URL=${NUXT_PUBLIC_SITE_URL}
 ENV PORT=${PORT}
 ENV NODE_ENV=production
-
+RUN npm install -g pnpm
+RUN pnpm install
+RUN pnpm run build
 COPY .output /usr/src/app/.output
 # COPY --from=build .output /usr/src/app/.output
 # Optional, only needed if you rely on unbundled dependencies
