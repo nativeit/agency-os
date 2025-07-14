@@ -8,15 +8,19 @@ RUN apt update && apt-get install -y git
 RUN git clone https://github.com/nativeit/agency-os /usr/src/app
 WORKDIR /usr/src/app
 RUN git checkout dev
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-# COPY . /usr/src/app
 
 # Build
 FROM base as build
+ARG NODE_VERSION=20.18.0
+ARG PORT=3000
+ARG DIRECTUS_URL="https://cms.dev.nativeit.net"
+ARG DIRECTUS_SERVER_TOKEN=${DIRECTUS_SERVER_TOKEN}
+ARG NUXT_PUBLIC_SITE_URL=${NUXT_PUBLIC_SITE_URL}
 # COPY /usr/src/app/package.json package-lock.json .
 COPY . .
 RUN npm install -g pnpm
 RUN pnpm install
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 RUN pnpm run build
 COPY .output .output
 
