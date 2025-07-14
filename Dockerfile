@@ -1,6 +1,9 @@
 ARG NODE_VERSION=20.18.0
 FROM node:${NODE_VERSION}-slim as base
 ARG PORT=3000
+ARG DIRECTUS_URL=${DIRECTUS_URL:-https://cms.dev.nativeit.net}
+ARG DIRECTUS_SERVER_TOKEN=${DIRECTUS_SERVER_TOKEN}
+ARG NUXT_PUBLIC_SITE_URL=${NUXT_PUBLIC_SITE_URL}
 RUN echo "$srv-captain--appname"
 RUN apt update && apt-get install -y git
 RUN git clone https://github.com/nativeit/agency-os /usr/src/app
@@ -21,6 +24,9 @@ RUN pnpm run build
 # Run
 FROM build
 ARG PORT=3000
+ARG DIRECTUS_URL=${DIRECTUS_URL}
+ARG DIRECTUS_SERVER_TOKEN=${DIRECTUS_SERVER_TOKEN}
+ARG NUXT_PUBLIC_SITE_URL=${NUXT_PUBLIC_SITE_URL}
 ENV PORT=${PORT}
 ENV NODE_ENV=production
 
