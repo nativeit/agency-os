@@ -1,10 +1,10 @@
-ARG NODE_VERSION=${NODE_VERSION}
+ARG NODE_VERSION=${NODE_VERSION:-20.18.0-slim}
 FROM node:${NODE_VERSION} AS base
 
 # Environment
 ENV PATH=/usr/src/app/node_modules/.bin:$PATH
-ENV NUXT_PUBLIC_SITE_PORT=${NUXT_PUBLIC_SITE_PORT}
-ENV DIRECTUS_URL=${DIRECTUS_URL}
+ARG NUXT_PUBLIC_SITE_PORT=${NUXT_PUBLIC_SITE_PORT}
+ARG DIRECTUS_URL=${DIRECTUS_URL}
 
 # Setup & clone
 RUN apt update && apt-get install -y git
@@ -24,7 +24,7 @@ RUN pnpm run build
 # Stage
 FROM build
 ENV PORT=${NUXT_PUBLIC_SITE_PORT:-3000}
-ENV NODE_ENV=${AGENCY_OS_ENV:-production}
+ENV NODE_ENV=${AGENCY_OS_ENV:-development}
 COPY --from=build /usr/src/app/.output .output
 # Optional, only needed if you rely on unbundled dependencies
 # COPY --from=build node_modules /usr/src/node_modules

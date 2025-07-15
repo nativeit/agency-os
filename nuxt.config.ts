@@ -50,8 +50,9 @@ export default defineNuxtConfig({
 	// Directus Configuration
 	directus: {
 		rest: {
-			baseUrl: process.env.DIRECTUS_URL || 'http://localhost:8055',
+			baseUrl: process.env.DIRECTUS_URL || 'http://cms.dev.nativeit.net',
 			nuxtBaseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+			directusToken: process.env.DIRECTUS_TOKEN || '', // Optional Directus token for authenticated requests
 		},
 		auth: {
 			enabled: true,

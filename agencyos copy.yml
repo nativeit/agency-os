@@ -1,0 +1,42 @@
+captainVersion: 4
+services:
+    $$cap_appname:
+        image: node:20.18.0-slim
+        command: >
+            sh -c 'apt update && apt-get install -y git && rm -rf /usr/src/app && git clone https://github.com/nativeit/agency-os /usr/src/app && cd /usr/src/app && npm install -g pnpm && pnpm install && pnpm build && pnpm start'
+        volumes:
+            - $$cap_appname-server:/usr/src/app/.output/server
+            - $$cap_appname-public:/usr/src/app/.output/public
+        restart: always
+        environment:
+            DIRECTUS_URL: 'http://cms.$$cap_root_domain'
+            DIRECTUS_SERVER_TOKEN: $$cap_directus_token
+            NUXT_PUBLIC_SITE_URL: 'http://$$cap_appname.$$cap_root_domain'
+            SITE_URL: 'http://$$cap_appname.$$cap_root_domain'
+            NODE_ENV: 'production'
+            NODE_VERSION: '20.18.0'
+        workingDir: /usr/src/app
+        caproverExtra:
+            containerHttpPort: '3000'
+caproverOneClickApp:
+    variables:
+        - description: Tag of Agency OS image on https://hub.docker.com/repository/docker/nativeit/agencyos/tags
+          defaultValue: v0.0.0
+          id: $$cap_agencyos_tag
+          label: Agency OS image tag
+          validRegex: /.{1,}/
+        - description: Server token for Directus
+          id: $$cap_directus_token
+          label: Directus Server Token
+          validRegex: /^(?=.*\d).{10,}$/
+    instructions:
+        end: >
+            Aaaand you're done! 😄
+            Your service is available at http://$$cap_appname.$$cap_root_domain
+        start: >-
+            Agency OS is an open-source suite of software from the developers of Directus and NuxtJS that wraps custom SQL databases with a dynamic API and intuitive Admin App.
+            For more information and available options, see https://github.com/directus-labs/agencyos or the official documentation at https://docs.directus.io
+displayName: 'Agency OS'
+isOfficial: false
+description: Agency OS is an open-source tool for agencies to facilitate managing content across all your omni-channel digital experiences
+documentation: Taken from https://github.com/directus-labs/agencyos.
